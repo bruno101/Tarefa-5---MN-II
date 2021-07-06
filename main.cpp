@@ -62,19 +62,32 @@ int main() {
   cout << "Escolha o valor de b: \n";
   cin >> b;
 
-  cout << "Escolha entre Gauss-Legendre e Newton-Cotes";
-  cout << "1 - Gauss Legendre";
-  cout << "2 - Newton-Cotes";
+  cout << "Escolha entre Gauss-Legendre e Newton-Cotes\n";
+  cout << "1 - Gauss-Legendre\n";
+  cout << "2 - Newton-Cotes\n";
   cin >> no_gauss_ou_newton;
 
   switch (no_gauss_ou_newton) {
     case 1:
 
       cout << "Escolha o número de pontos: \n";
-      cout << "2 - 2 Pontos";
-      cout << "3 - 3 Pontos";
-      cout << "4 - 4 Pontos";
+      cout << "2 - 2 Pontos\n";
+      cout << "3 - 3 Pontos\n";
+      cout << "4 - 4 Pontos\n";
       cin >> no_pontos;
+
+      cout << "Escolha entre partição e precisão: \n";
+      cout << "1 - Partição \n";
+      cout << "2 - Precisão \n";
+      cin >> particao_ou_precisao;
+
+      if (particao_ou_precisao == 1) {
+        cout << "Escolha o número de partições: \n";
+        cin >> numero_de_particoes;
+      } else {
+        cout << "Escolha a precisão: \n";
+        cin >> precisao;
+      }
 
       switch (no_pontos) {
         case 2:
@@ -83,14 +96,18 @@ int main() {
         break;  
 
         case 3:
-          pintegrObj = new GL_P3(integrando, a, b,particao_ou_precisao, numero_de_particoes, precisao);
+          pintegrObj = new GL_P3(integrando, a, b, particao_ou_precisao, numero_de_particoes, precisao);
           integral = pintegrObj->integrar();
+        break;
 
         case 4:
           pintegrObj = new GL_P4(integrando, a, b, particao_ou_precisao, numero_de_particoes, precisao);
           integral = pintegrObj->integrar();
+        break;
 
       }
+
+      break;
 
     case 2:
 

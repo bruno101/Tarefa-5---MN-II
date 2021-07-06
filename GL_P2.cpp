@@ -65,6 +65,7 @@ double GL_P2::integrar () {
       } else {
 
         if ( abs( (integral-oldIntegral)/integral ) < precisao) {
+          std::cout << "O número de partições usado foi N = " << n << "\n";
           break;
         }
 

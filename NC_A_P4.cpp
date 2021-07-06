@@ -59,6 +59,7 @@ double NC_A_P4::integrar () {
       } else {
 
         if ( abs( (integral-oldIntegral)/integral ) < precisao) {
+          std::cout << "O número de partições usado foi N = " << n << "\n";
           break;
         }
 
