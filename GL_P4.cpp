@@ -70,7 +70,12 @@ double GL_P4::integrar () {
 
       } else {
 
-        if ( abs( (integral-oldIntegral)/integral ) < precisao) {
+        if (integral == 0) {
+          if (abs(integral-oldIntegral) < precisao) {
+            std::cout << "O número de partições usado foi N = " << n << "\n";
+            break;
+          }
+        } else if ( abs( (integral-oldIntegral)/integral ) < precisao) {
           std::cout << "O número de partições usado foi N = " << n << "\n";
           break;
         }
